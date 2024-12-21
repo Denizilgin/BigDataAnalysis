@@ -52,3 +52,19 @@ Performans değerlendirmesi için aşağıdaki metrikler kullanıldı:
    ```bash
    ./bin/zookeeper-server-start.sh config/zookeeper.properties
    ./bin/kafka-server-start.sh config/server.properties
+
+2. Apache Spark'ı indirin ve kurulumu tamamlayın.
+3. Proje kodlarını klonlayın:
+   ```bash
+   git clone https://github.com/kullaniciadi/projeadi.git
+   cd projeadi
+4. Python bağımlılıklarını yükleyin:
+   ```bash
+   pip install -r requirements.txt
+## Çalıştırma
+1. Kafka topic oluşturun:
+   ```bash
+   ./bin/kafka-topics.sh --create --topic araba_i --bootstrap-server localhost:9092
+2.Spark Streaming uygulamasını başlatın:
+   ```bash
+   spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1 main.py
